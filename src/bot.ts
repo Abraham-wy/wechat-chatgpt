@@ -23,7 +23,7 @@ enum MessageType {
   Post = 16, // Moment, Channel, Tweet, etc
 }
 
-const SINGLE_MESSAGE_MAX_SIZE = 500;
+const SINGLE_MESSAGE_MAX_SIZE = 1000;
 export class ChatGPTBot {
   chatPrivateTiggerKeyword = config.chatPrivateTiggerKeyword;
   chatTiggerRule = config.chatTiggerRule? new RegExp(config.chatTiggerRule): undefined;
@@ -136,7 +136,7 @@ export class ChatGPTBot {
     room: RoomInterface
   ) {
     const gptMessage = await this.getGPTMessage(text);
-    const result = `@${talker.name()} ${text}\n\n------ ${gptMessage}`;
+    const result = `${gptMessage}`;
     await this.trySay(room, result);
   }
   async onMessage(message: Message) {
