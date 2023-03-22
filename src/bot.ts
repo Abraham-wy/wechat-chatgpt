@@ -23,7 +23,7 @@ enum MessageType {
   Video = 15, // Video(4), Video(43)
   Post = 16, // Moment, Channel, Tweet, etc
 }
-const SINGLE_MESSAGE_MAX_SIZE = 500;
+const SINGLE_MESSAGE_MAX_SIZE = 1000;
 type Speaker = RoomImpl | ContactImpl;
 interface ICommand{
   name:string;
@@ -264,7 +264,7 @@ export class ChatGPTBot {
       return;
     }
     // 使用DallE生成图片
-    if (rawText.startsWith("/img")){
+    if (rawText.startsWith("画")){
       console.log(`🤖 Image: ${rawText}`)
       const imgContent = rawText.slice(4)
       if (privateChat) {
