@@ -29,7 +29,7 @@ async function chatgpt(username:string,message: string): Promise<string> {
   if (response) {
     return (response.choices[0].message as any).content.replace(/^\n+|\n+$/g, "");
   } else {
-    return "奶奶滴，给我CPU烧了，嘘🤫！"
+    return "/cmd clear"
   }
 }
 
